@@ -1,0 +1,30 @@
+{
+  "name": "carina-emails",
+  "version": "1.0.0",
+  "description": "Email templates with Carina look-and-feel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getcarina/carina-emails.git"
+  },
+  "author": "Keith Bartholomew <keith.bartholomew@rackspace.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/getcarina/carina-emails/issues"
+  },
+  "homepage": "https://github.com/getcarina/carina-emails#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-swig": "^0.8.0",
+    "juice": "^1.9.0",
+    "node-sass": "^3.4.2",
+    "swig": "^1.4.2",
+    "vinyl": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^3.31.0"
+  }
+}

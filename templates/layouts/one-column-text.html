@@ -1,0 +1,31 @@
+{% extends '_main.html' %}
+
+{% block body %}
+  <table class="container">
+    <tr>
+      <td>
+        <table class="row">
+          <tr>
+            <td class="wrapper last">
+              <table class="twelve columns">
+                <img src="http://d5b57a20fceef8aee181-679cea096fc9f9d061cc945341af85dc.r36.cf1.rackcdn.com/carina-logo.jpg" alt="Carina by Rackspace" class="carina-logo">
+              </table>
+            </td>
+          </tr>
+        </table>
+        <table class="row">
+          <tr>
+            <td class="wrapper">
+              <table class="twelve columns">
+                {% block columnOne %}
+                  <p>Hey there,</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda odio eius qui non enim fugiat, maxime modi nulla animi unde nostrum tenetur ipsam distinctio explicabo placeat iusto eligendi eveniet veniam?</p>
+                {% endblock %}
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

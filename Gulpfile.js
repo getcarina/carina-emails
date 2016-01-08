@@ -68,3 +68,17 @@ gulp.task('swig', function (next) {
     output: argv.output
   }, next);
 });
+
+gulp.task('manualbuild', function (next) {
+  var spawn = require('child_process').spawn;
+
+  var proc = spawn('gulp', ['swig', '-t', 'new-user-no-usage.html', '-o', 'new-user-no-usage.html']);
+
+  proc.on('close', function () {
+    next();
+  });
+});
+
+gulp.task('watch', function () {
+  gulp.watch(['scss/**/*.scss', 'templates/**/*.html'], ['manualbuild']);
+});

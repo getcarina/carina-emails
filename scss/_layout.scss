@@ -3,7 +3,15 @@
 }
 
 
-td.wrapper.article {
+td.wrapper.letterhead {
+  padding-bottom: 30px;
+}
+
+table.row.article {
   padding-bottom: 30px;
   padding-top: 30px;
+}
+
+table.row.article.accent td {
+  background: $background-accent;
 }

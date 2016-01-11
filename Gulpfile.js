@@ -2,12 +2,15 @@ var fs = require('fs');
 var path = require('path');
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var juice = require('juice');
 var sass = require('node-sass');
-var swig = require('swig');
+var nunjucksLib = require('nunjucks');
 var through = require('through2');
 var File = require('vinyl');
+
+var nunjucks = new nunjucksLib.Environment(new nunjucksLib.FileSystemLoader('templates'));
 
 
 gulp.task('scss', function (callback) {
@@ -19,6 +22,7 @@ gulp.task('scss', function (callback) {
 });
 
 var buildTemplate = function (options, callback) {
+  gutil.log('Compiling SCSS...');
   sass.render({
     file: './scss/main.scss'
   }, function (err, result) {
@@ -28,33 +32,33 @@ var buildTemplate = function (options, callback) {
 
     var css = result.css.toString();
 
-    var template = path.resolve(process.cwd(), './templates/' + options.template );
-
-    var renderedTemplate = swig.renderFile(template, {
+    var template = path.resolve(process.cwd(), options.template );
+    gutil.log('Rendering Template %s...', template);
+    var renderedTemplate = nunjucks.render(template, {
       css: css,
       content: {
         subject: 'Hello there!'
       }
     });
 
+    gutil.log('Inlining CSS...');
     var inlined = juice(renderedTemplate, {
-      preserveMediaQueries: true
+      preserveMediaQueries: true,
+      removeStyleTags: false
     });
 
     if(options.output) {
       fs.writeFileSync(path.resolve(process.cwd(), './build/' + options.output), inlined);
     }
     else {
-      process.stdout.write(inlined);
+      fs.writeFileSync(path.resolve(process.cwd(), './build/' + path.basename(options.template)), inlined);
     }
-
-
 
     return callback();
   });
 };
 
-gulp.task('swig', function (next) {
+gulp.task('build', function (next) {
   var argv = require('yargs')
     .alias('t', 'template')
     .alias('d', 'data')
@@ -72,7 +76,7 @@ gulp.task('swig', function (next) {
 gulp.task('manualbuild', function (next) {
   var spawn = require('child_process').spawn;
 
-  var proc = spawn('gulp', ['swig', '-t', 'new-user-no-usage.html', '-o', 'new-user-no-usage.html']);
+  var proc = spawn('gulp', ['build', '-t', 'templates/one-column-example.html'], {stdio: 'inherit'});
 
   proc.on('close', function () {
     next();

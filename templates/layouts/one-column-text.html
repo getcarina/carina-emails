@@ -1,4 +1,4 @@
-{% extends '_main.html' %}
+{% extends 'layouts/_main.html' %}
 
 {% block body %}
   <table class="container">
@@ -6,22 +6,24 @@
       <td>
         <table class="row">
           <tr>
-            <td class="wrapper last">
+            <td class="letterhead wrapper last">
               <table class="twelve columns">
-                <img src="http://d5b57a20fceef8aee181-679cea096fc9f9d061cc945341af85dc.r36.cf1.rackcdn.com/carina-logo.jpg" alt="Carina by Rackspace" class="carina-logo">
+                <tr>
+                  <td>
+                    <img src="https://8d8dcdd952aa2708c2ff-519cda130c91226e76017ae910bdb276.ssl.cf1.rackcdn.com/carina-logo-05269d3bf71f2eb271f572677dde85ebe2c96315ff9df42ce30657e8ee95ef62.jpg" alt="Carina by Rackspace" class="carina-logo">
+                  </td>
+                </tr>
               </table>
             </td>
           </tr>
         </table>
         <table class="row">
           <tr>
-            <td class="wrapper">
-              <table class="twelve columns">
-                {% block columnOne %}
-                  <p>Hey there,</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda odio eius qui non enim fugiat, maxime modi nulla animi unde nostrum tenetur ipsam distinctio explicabo placeat iusto eligendi eveniet veniam?</p>
-                {% endblock %}
-              </table>
+            <td class="wrapper last">
+              {% block columnOne %}
+                <p>Hey there,</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda odio eius qui non enim fugiat, maxime modi nulla animi unde nostrum tenetur ipsam distinctio explicabo placeat iusto eligendi eveniet veniam?</p>
+              {% endblock %}
             </td>
           </tr>
         </table>

@@ -83,6 +83,32 @@ gulp.task('manualbuild', function (next) {
   });
 });
 
+gulp.task('mail', function (next) {
+  var mailgun = require('mailgun-js')({
+    apiKey: process.env.MG_APIKEY,
+    domain: process.env.MG_DOMAIN
+  });
+
+  var argv = require('yargs')
+    .alias('f', 'file')
+    .alias('t', 'to')
+    .demand(['f'])
+    .argv;
+
+  mailgun.messages().send({
+    from: 'Carina Email Test <noreply@getcarina.com>',
+    to: argv.to,
+    subject: 'Carina Email Test',
+    html: fs.readFileSync(path.join(process.cwd(), argv.file)).toString('utf-8')
+  }, function (err, body) {
+    if(err) {
+      return next(err);
+    }
+
+    return next();
+  });
+});
+
 gulp.task('watch', function () {
   gulp.watch(['scss/**/*.scss', 'templates/**/*.html'], ['manualbuild']);
 });

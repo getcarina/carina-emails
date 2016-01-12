@@ -1,7 +1,7 @@
 {% extends 'layouts/_main.html' %}
 
 {% block body %}
-  <table class="container">
+  <table class="container {% block bodyClass %}{% endblock %}">
     <tr>
       <td>
         <table class="row">
@@ -10,7 +10,7 @@
               <table class="twelve columns">
                 <tr>
                   <td>
-                    <img src="https://8d8dcdd952aa2708c2ff-519cda130c91226e76017ae910bdb276.ssl.cf1.rackcdn.com/carina-logo-05269d3bf71f2eb271f572677dde85ebe2c96315ff9df42ce30657e8ee95ef62.jpg" alt="Carina by Rackspace" class="carina-logo">
+                    <img src="https://8d8dcdd952aa2708c2ff-519cda130c91226e76017ae910bdb276.ssl.cf1.rackcdn.com/carina-logo-05269d3bf71f2eb271f572677dde85ebe2c96315ff9df42ce30657e8ee95ef62.jpg" alt="" class="carina-logo">
                   </td>
                 </tr>
               </table>

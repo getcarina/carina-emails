@@ -76,7 +76,7 @@ gulp.task('build', function (next) {
 gulp.task('manualbuild', function (next) {
   var spawn = require('child_process').spawn;
 
-  var proc = spawn('gulp', ['build', '-t', 'templates/one-column-example.html'], {stdio: 'inherit'});
+  var proc = spawn('gulp', ['build', '-t', 'templates/new-user-no-activity.html'], {stdio: 'inherit'});
 
   proc.on('close', function () {
     next();

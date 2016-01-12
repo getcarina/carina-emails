@@ -12,6 +12,26 @@ table.row.article {
   padding-top: 30px;
 }
 
-table.row.article.accent td {
+table.row.accent td.wrapper {
   background: $background-accent;
+
+  .accent-content {
+    padding: 40px 20px;
+
+    @media (max-width: 600px) {
+      padding: 20px !important;
+    }
+  }
+}
+
+table.row.section-start {
+  margin-top: 40px;
+
+  @media (max-width: 600px) {
+    margin-top: 20px !important;
+  }
+}
+
+.accent-border-below {
+  border-bottom: solid 1px mix(black, $background-accent, 8%);
 }

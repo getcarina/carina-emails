@@ -47,11 +47,28 @@ var buildTemplate = function (options, callback) {
       removeStyleTags: false
     });
 
+    // ensure we've got a valid build directory
+    var buildPath = path.resolve(process.cwd(), './build');
+    try {
+      fs.statSync(buildPath)
+    }
+    catch (e) {
+      gutil.log('Build directory not found, creating...');
+      if (e.code === 'ENOENT') {
+        fs.mkdirSync(buildPath)
+      }
+      else {
+        // something else is going on here
+        gutil.log('Unknown error checking build directory...');
+        process.exit(1);
+      }
+    }
+
     if(options.output) {
-      fs.writeFileSync(path.resolve(process.cwd(), './build/' + options.output), inlined);
+      fs.writeFileSync(path.resolve(buildPath, options.output), inlined);
     }
     else {
-      fs.writeFileSync(path.resolve(process.cwd(), './build/' + path.basename(options.template)), inlined);
+      fs.writeFileSync(path.resolve(buildPath, path.basename(options.template)), inlined);
     }
 
     return callback();

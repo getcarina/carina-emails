@@ -1,0 +1,31 @@
+{% extends 'layouts/one-column-text.html' %}
+
+{% block columnOne %}
+  <table class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td class="center">
+              <div class="mktEditable" id="intro-text">
+                <p>%recipient.userName%,</p>
+                <p>We hope you're enjoying the Carina beta! For us Carina has been a wild ride so far, and we're overwhelmed by the user response. We want to enable everyone to experience Carina, so as part of our regular maintenance we've recently identified unused and old clusters.</p>
+                <p>It appears that your <strong>%recipient.clusterNames%</strong> %recipient.multiple1% idle and unused. To free up unused resources we currently have %recipient.multiple2% scheduled for deletion this <strong>Friday, February 26th, at 12 noon central standard time (CST)</strong>.</p>
+                <p>If we've wrongly identified your %recipient.multiple3% or you want to keep %recipient.multiple4%, simply deploy a Docker container on your %recipient.multiple3%. Also, even if we delete your %recipient.multiple3%, you're welcome to re-create %recipient.multiple4% at any time to continue using Carina.</p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table class="row goodbye">
+    <tr>
+      <td class="wrapper last">
+        <div class="mktEditable" id="closing-salutation">
+          <p>Thanks,<br>The Carina team</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

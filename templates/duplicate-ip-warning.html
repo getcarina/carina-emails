@@ -1,0 +1,33 @@
+{% extends 'layouts/one-column-text.html' %}
+
+{% block columnOne %}
+  <table class="row">
+    <tr>
+      <td class="wrapper last">
+        <table class="twelve columns">
+          <tr>
+            <td class="center">
+              <div class="mktEditable" id="intro-text">
+                <p>%recipient.userName%,</p>
+                <p>We're reaching out to notify you and other affected users about an outage was identified on March 3rd and impacts your %recipient.multiple1%. You can read details of the incident here: <a href="https://status.getcarina.com/">status.getcarina.com</a>.</p>
+                <p>Part of the resolution of this incident unfortunately requires deletion of the affected %recipient.multiple1% below by Friday, March 4th, at 1:00pm central standard time (CST):</p>
+                %recipient.clusterNamesHtml%
+                <p>Newly created clusters are unaffected. This deletion is due to duplicate IP addresses being assigned to clusters due to a network infrastructure misconfiguration. You may have already noticed connectivity issues with those clusters.</p>
+                <p>While Carina is in a non-production beta, the team takes a great deal of pride in the uptime and quality of Carina. The entire team sincerely apologizes for this and we are working with other groups and teams to ensure something like this does not occur again.</p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table class="row goodbye">
+    <tr>
+      <td class="wrapper last">
+        <div class="mktEditable" id="closing-salutation">
+          <p>Thanks,<br>The Carina Team</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -7,6 +7,15 @@ td.wrapper.letterhead {
   padding-bottom: 30px;
 }
 
+td.wrapper.unsub {
+  padding-top: 30px;
+
+  p {
+    font-size: 13px;
+    color: mix(white, $text-color, 50%);
+  }
+}
+
 table.row.article {
   padding-bottom: 30px;
   padding-top: 30px;

@@ -27,7 +27,7 @@
               <div mc:edit="main_content" id="main_content">
                 <p>The Linux Kernel has a bug affecting containers which requires a reboot to resolve.  The Carina team will start rebooting all Carina instances on <strong>Monday at Noon CST</strong>.  This process will take approximately 90 minutes.  User nodes will be unavailable for short periods of time throughout this process as we roll through rebooting infrastructure.  Please make sure to check restart settings and backup your data.</p>
                 <p>We will provide up to the minute updates during the maintenance window on our [status page](https://carinabyrackspace.statuspage.io/).</p>
-                <p>[Click here](https://tech.vijayp.ca/linux-kernel-bug-delivers-corrupt-tcp-ip-data-to-mesos-kubernetes-docker-containers-4986f88f7a19#.jftu43yjp) for more information about the Linux Kernel bug.</p>
+                <p>[Read more about the Linux kernel bug](https://tech.vijayp.ca/linux-kernel-bug-delivers-corrupt-tcp-ip-data-to-mesos-kubernetes-docker-containers-4986f88f7a19#.jftu43yjp)</p>
               </div>
             </td>
           </tr>
